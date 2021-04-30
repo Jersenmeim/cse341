@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%=title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1>Library App</h1>
+    <div class="container">
+        <form action="/add-book" method="POST">
+            <input type="text" name="title" placeholder="Add Title" required>
+            <input type="text" name="summary" placeholder="Add Summary" required>
+            <button type="submit" value="Submit">Add Book</button>
+        </form>
+    </div>
+    <div class="card-book">
+
+        <% if(book.length > 0) {%>
+        <% for(books of book) { %>
+        <div>
+            <img src="/images/250x300C.png" alt="Book">
+            <p><%= books.title %></p>
+            <p><%= books.summary %></p>
+        </div> 
+            <% } %>
+            <%} else{%>
+            <p>no books found</p>
+            <%}%>
+  
+    </div>
+</body>
+</html>

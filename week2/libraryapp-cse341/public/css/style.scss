@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+@mixin center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+h1{
+    padding: 10px
+}
+.container {
+    @include center;
+    align-items: flex-start;
+    height: 40vh;
+    width: 100%;
+    form {
+        @include center;
+        width: 20%;
+        margin: 10px auto;
+
+        input,
+        button {
+            width: 100%;
+            margin: 2px 0;
+            padding: 8px;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+
+}
+
+.card-book {
+    width: 70%;
+    flex-wrap: wrap;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    div {
+        margin: 10px;
+      
+        img {
+            width: 100%;
+        }
+
+        p:first-of-type {
+            font-size: 25px;
+            font-weight: bolder;
+        }
+
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+    .container{
+        form{
+            padding: 8px;
+            width: 80%;
+        }
+    }
+
+    .card-book{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
