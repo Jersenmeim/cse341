@@ -76,6 +76,7 @@ h1 {
 
 .card-book div {
   margin: 10px;
+  width: 30%;
 }
 
 .card-book div img {
@@ -96,6 +97,9 @@ h1 {
     width: 100%;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+  }
+  .card-book div {
+    width: 80%;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -50,7 +50,7 @@ h1{
 
     div {
         margin: 10px;
-      
+        width: 30%;
         img {
             width: 100%;
         }
@@ -75,5 +75,9 @@ h1{
     .card-book{
         width: 100%;
         flex-wrap: wrap;
+
+        div{
+            width: 80%;
+        }
     }
 }
