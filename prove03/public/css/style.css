@@ -1,0 +1,230 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header nav {
+  background-color: black;
+}
+
+header nav ul {
+  padding: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header nav ul li {
+  margin: 0 1em;
+  list-style-type: none;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+h1 {
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 40vh;
+  width: 100%;
+}
+
+.container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20%;
+  margin: 20px auto;
+}
+
+.container form textarea {
+  width: 100%;
+  padding: 8px;
+}
+
+.container form input,
+.container form button {
+  width: 100%;
+  margin: 2px 0;
+  padding: 8px;
+}
+
+.container form button {
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background-color: #2a5a2a;
+}
+
+.container form button:hover {
+  background-color: black;
+  color: white;
+}
+
+.index {
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.index .card {
+  text-align: center;
+  width: 220px;
+  margin: 10px;
+  height: 220px;
+}
+
+.index .card div {
+  height: 220px;
+}
+
+.index .card div img {
+  height: 100%;
+  width: 100%;
+}
+
+.index .card div p:first-of-type {
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.index .card .button {
+  margin: 50px 0 0 0;
+}
+
+.index .card .button a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 10px;
+  background-color: black;
+}
+
+.Details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Details div {
+  width: 220px;
+  height: 220px;
+  margin: 10px;
+}
+
+.Details div img {
+  height: 100%;
+  width: 100%;
+}
+
+.Details div p {
+  margin: 8px 0;
+}
+
+.Details div p:first-of-type {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.Details .button {
+  margin: 190px 0;
+}
+
+.Details .button a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 10px;
+  background-color: black;
+}
+
+@media only screen and (max-width: 767px) {
+  .container form {
+    padding: 8px;
+    width: 80%;
+  }
+  .index {
+    width: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+  .index .card {
+    text-align: center;
+    width: 220px;
+    margin: 10px;
+    height: 320px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
