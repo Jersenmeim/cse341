@@ -1,4 +1,5 @@
 const Product = require('../models/products')
+const Order = require('../models/order')
 const mongodb = require('mongodb');
 
 //admin Controller
@@ -10,6 +11,30 @@ exports.getAddproduct = (req, res) => {
         path: '/admin/add-product',
     })
 }
+exports.postEditProduct = (req, res) => {
+    const title = req.body.title;
+    const imageUrl = req.body.imageUrl;
+    const price = req.body.price;
+    const description = req.body.description;
+    const product = new Product({
+        title: title,
+        price: price,
+        description: description,
+        imageUrl: imageUrl,
+        userId: req.user
+    });
+    product
+        .save()
+        .then(result => {
+            // console.log(result);
+            console.log('Created Product');
+            res.redirect('/admin/products');
+        })
+        .catch(err => {
+            console.log(err);
+        });
+
+};
 exports.getEditproduct = (req, res) => {
     const editMode = req.query.edit;
     if (!editMode) {
@@ -29,39 +54,43 @@ exports.getEditproduct = (req, res) => {
     }).catch(err => {
         console.log(err);
     });
+
+
 }
-exports.postEditProduct = (req, res) => {
+exports.postProduct = (req, res) => {
     const prodId = req.body.productId;
     const updatedTitle = req.body.title;
     const updatedPrice = req.body.price;
-    const updatedImageUrl = req.body.imgpath;
+    const updatedImageUrl = req.body.imageUrl;
     const updatedDesc = req.body.description;
-    const updatedProduct = new Product(
-        prodId,
-        updatedTitle,
-        updatedDesc,
-        updatedPrice,
-        updatedImageUrl,
-        req.user._id
 
-    );
-    updatedProduct.save().then(() => {
+    Product.findById(prodId)
+        .then(product => {
+            product.title = updatedTitle;
+            product.price = updatedPrice;
+            product.description = updatedDesc;
+            product.imageUrl = updatedImageUrl;
+            return product.save();
+        })
+        .then(result => {
             console.log('UPDATED PRODUCT!');
             res.redirect('/admin/products');
         })
-        .catch(err => console.log(err));;
-
-};
-exports.postdeleteproduct = (req, res) => {
-    const prodId = req.body.productId;
-    Product.deleteById(prodId).then(() => {
-        console.log('Delete Item');
-        res.redirect('/admin/products');
-    });
+        .catch(err => console.log(err));
 
 }
+exports.postdeleteproduct = (req, res) => {
+    const prodId = req.body.productId;
+    Product.findByIdAndRemove(prodId)
+        .then(() => {
+            console.log('DESTROYED PRODUCT');
+            res.redirect('/admin/products');
+        })
+        .catch(err => console.log(err));
+}
+
 exports.getAdminProduct = (req, res) => {
-    Product.fetchAll().then(products => {
+    Product.find().then(products => {
         res.render('admin/admin-product', {
             pageTitle: 'List Product',
             list: products,
@@ -75,7 +104,7 @@ exports.getAdminProduct = (req, res) => {
 //Product Controller
 
 exports.getProduct = (req, res) => {
-    Product.fetchAll().then(products => {
+    Product.find().then(products => {
         res.render('shop/index', {
             pageTitle: 'Shop Products',
             list: products,
@@ -85,18 +114,7 @@ exports.getProduct = (req, res) => {
         console.log(err);
     });
 }
-exports.postProduct = (req, res) => {
-    const title = req.body.title;
-    const description = req.body.description;
-    const price = req.body.price;
-    const imgpath = req.body.imgpath;
-    const product = new Product(null, title, description, price, imgpath, req.user._id)
-    product.save().then(() => {
-        res.redirect('/admin/add-product');
-    });
 
-
-}
 exports.getProductbyId = (req, res) => {
     const prodId = req.params.productId;
     Product.findById(prodId).then(product => {
@@ -113,11 +131,13 @@ exports.getProductbyId = (req, res) => {
 
 exports.getCart = (req, res) => {
     req.user
-        .getCart()
-        .then(products => {
+        .populate('cart.items.productId')
+        .execPopulate()
+        .then(user => {
+            const products = user.cart.items;
             res.render('shop/add-cart', {
                 path: '/cart',
-                pageTitle: 'Cart',
+                pageTitle: 'Your Cart',
                 products: products
             });
         })
@@ -126,7 +146,7 @@ exports.getCart = (req, res) => {
 exports.cartdeleteitem = (req, res) => {
     const prodId = req.body.productId;
     req.user
-        .deleteItemFromCart(prodId)
+        .clearCart(prodId)
         .then(() => {
             res.redirect('/cart');
         })
@@ -147,21 +167,45 @@ exports.postCart = (req, res) => {
 
 //Order Controller
 
-exports.postOrder = (req, res) => {
+exports.postOrder = (req, res, next) => {
     req.user
-        .addOrder()
+        .populate('cart.items.productId')
+        .execPopulate()
+        .then(user => {
+            const products = user.cart.items.map(i => {
+                return {
+                    quantity: i.quantity,
+                    product: {
+                        ...i.productId._doc
+                    }
+                };
+            });
+            const order = new Order({
+                user: {
+                    name: req.user.name,
+                    userId: req.user
+                },
+                products: products
+            });
+            return order.save();
+        })
+        .then(result => {
+            return req.user.clearCart();
+        })
         .then(() => {
             res.redirect('/orders');
         })
         .catch(err => console.log(err));
 };
-exports.getOrders = (req, res) => {
-    req.user
-        .getOrders()
+
+exports.getOrders = (req, res, next) => {
+    Order.find({
+            'user.userId': req.user._id
+        })
         .then(orders => {
             res.render('shop/orders', {
-                pageTitle: 'Orders',
                 path: '/orders',
+                pageTitle: 'Your Orders',
                 orders: orders
             });
         })

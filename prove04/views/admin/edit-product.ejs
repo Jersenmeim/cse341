@@ -11,8 +11,8 @@
                     value="<% if (editing) { %><%= product.title %><% } %>" required>
                 <input type="number" name="price" step=".01" placeholder="$0.00" min="0.01"
                     value="<% if (editing) { %><%= product.price %><% } %>" required>
-                <input type="text" name="imgpath" placeholder="Image Path/Url (https://image/com)"
-                    value="<% if (editing) { %><%= product.imgpath %><% } %>" required>
+                <input type="text" name="imageUrl" placeholder="Image Path/Url (https://image/com)"
+                    value="<% if (editing) { %><%= product.imageUrl %><% } %>" required>
                 <textarea type="text" name="description" placeholder="Description" required
                     rows="5"><% if (editing) { %><%= product.description %><% } %></textarea>
                 <% if (editing) { %>
