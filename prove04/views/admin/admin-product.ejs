@@ -1,0 +1,37 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+
+
+    <%- include('../includes/nav.ejs') %>
+    <div class="parent">
+        <div class="admin-product">
+            <h1>List of Admin Products </h1>
+            <div class="index">
+                <% if(list.length > 0) {%>
+                <% for(product of list) { %>
+                <div class="card">
+
+                    <img src=<%= product.imgpath %> alt=<%= product.title %>>
+                    <p><%= product.title %></p>
+                    <p><%= product.description %></p>
+                    <p><b>Price: </b><%= product.price %></p>
+
+
+                    <form action="/admin/delete-product" method="POST">
+                        <a class="btn" href="/admin/edit-product/<%= product._id %>?edit=true">Edit</a>
+                        <input type="hidden" value="<%= product._id %>" name="productId">
+                        <input class="btn" type="submit" value="Delete">
+                    </form>
+
+                </div>
+                <% } %>
+                <%} else{%>
+                <p>No Products Found</p>
+                <%}%>  
+            </div>
+        </div>
+    </div>
+
+
+    <%- include('../includes/end.ejs') %>

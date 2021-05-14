@@ -1,0 +1,32 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+    <div class="parent">
+        <div>
+            <div class="orders">
+                <p><b>List of Orders</b> </p>
+
+                <% if (orders.length <= 0) { %>
+                <p>Nothing there!</p>
+                <% } else { %>
+                <ol>
+                    <% orders.forEach(order => { %>
+                    <li class="list">
+                        <p>Order - # <b><%= order._id %></b></p>
+                        <ol>
+                            <% order.items.forEach(product => { %>
+                            <li><%= product.title %> (<%= product.quantity %>)</li>
+                            <% }); %>
+                        </ol>
+                    </li>
+                    <% }); %>
+                    </>
+                    <% } %>
+
+            </div>
+        </div>
+    </div>
+
+    <%- include('../includes/end.ejs') %>
