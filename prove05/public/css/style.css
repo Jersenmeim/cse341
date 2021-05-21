@@ -1,0 +1,537 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 10px 12px 10px 12px;
+  border: 1px solid #CCCCCC;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.nav-container {
+  width: 100%;
+}
+
+.nav-container .nav-bar {
+  max-width: 300px;
+  margin-left: -300px;
+  -webkit-transition: margin .3s ease-in-out;
+  transition: margin .3s ease-in-out;
+}
+
+.nav-container .nav-bar .visible {
+  margin-left: 0;
+}
+
+.nav-container .nav-bar ul {
+  background: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  z-index: 4;
+}
+
+.nav-container .nav-bar ul li {
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.nav-container .nav-bar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-container .nav-bar ul li .active {
+  color: #e09900;
+}
+
+.parent {
+  position: relative;
+  top: -500px;
+  width: 100%;
+  z-index: 1;
+}
+
+.parent .container {
+  justify-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.parent .container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20%;
+}
+
+.parent .container form textarea {
+  width: 100%;
+  padding: 8px;
+}
+
+.parent .container form input,
+.parent .container form button {
+  width: 100%;
+  margin: 2px 0;
+  padding: 8px;
+}
+
+.parent .container form button {
+  background-color: #129b34;
+  color: white;
+}
+
+.parent .container form button:hover {
+  background: rgba(1, 1, 1, 0.5);
+}
+
+.parent .admin-product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.parent .admin-product h1 {
+  padding: 20px;
+  text-align: center;
+}
+
+.parent .admin-product .index {
+  width: 100%;
+  height: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.parent .admin-product .index .card {
+  text-align: center;
+  width: 220px;
+  margin: 0 2px;
+}
+
+.parent .admin-product .index .card img {
+  height: 100%;
+  width: 100%;
+}
+
+.parent .admin-product .index .card p:first-of-type {
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.parent .admin-product .index .card form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 10px auto;
+  width: 50%;
+}
+
+.parent .admin-product .index .card form a {
+  background-color: #129b34;
+  color: white;
+}
+
+.parent .admin-product .index .card form a:hover {
+  background: rgba(1, 1, 1, 0.5);
+}
+
+.parent .admin-product .index .card form input {
+  background-color: #b91f1f;
+  color: white;
+}
+
+.parent .admin-product .index .card form input:hover {
+  background: rgba(1, 1, 1, 0.5);
+}
+
+.parent .admin-product .index .card .details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 10px 0 0 10px;
+  width: 92%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.parent .admin-product .index .card .details a {
+  background-color: #129b34;
+  color: white;
+}
+
+.parent .admin-product .index .card .details a:hover {
+  background: rgba(1, 1, 1, 0.5);
+}
+
+.parent .admin-product .index .card .details form {
+  margin: 0;
+  padding: 0;
+}
+
+.parent .admin-product .index .card .details form button {
+  background-color: #2d5ba1;
+  color: white;
+}
+
+.parent .admin-product .index .card .details form button:hover {
+  background: rgba(1, 1, 1, 0.5);
+}
+
+.parent .each {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+.parent .each img {
+  width: 30%;
+}
+
+.parent .each form {
+  margin: 0;
+  padding: 0;
+}
+
+.parent .each form button {
+  background-color: #2d5ba1;
+  color: white;
+}
+
+.parent .each form button:hover {
+  background: rgba(1, 1, 1, 0.5);
+}
+
+.parent .cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+  margin: auto;
+}
+
+.parent .cart ul {
+  margin: 0;
+  padding: 50px 0 0 0;
+  width: 100%;
+}
+
+.parent .cart ul li {
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.parent .cart ul li p {
+  width: 100px;
+  margin: 0 10px;
+}
+
+.parent .cart ul li form {
+  margin: 0;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+}
+
+.parent .cart ul li form button {
+  background-color: #b91f1f;
+  color: white;
+}
+
+.parent .cart ul li form button:hover {
+  background: rgba(1, 1, 1, 0.5);
+}
+
+.parent .cart ul form {
+  margin: 10px 10px 10px 30px;
+  text-align: center;
+}
+
+.parent .cart ul form button {
+  background-color: #2d5ba1;
+  color: white;
+}
+
+.parent .cart ul form button:hover {
+  background: rgba(1, 1, 1, 0.5);
+}
+
+.parent .orders {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.parent .orders p {
+  font-size: 30px;
+}
+
+.parent .orders ul .list {
+  list-style-type: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .nav-container .nav-bar ul li {
+    margin-left: 20px;
+    padding: 10px;
+  }
+  .parent .container form {
+    padding: 2em;
+    width: 100%;
+  }
+  .parent .admin-product {
+    margin: -100px 0 0 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .parent .admin-product h1 {
+    padding: 20px;
+    text-align: center;
+    z-index: 9;
+    position: relative;
+  }
+  .parent .admin-product .index {
+    width: 100%;
+    height: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .parent .admin-product .index .card {
+    margin: 10px 0;
+  }
+  .parent .admin-product .index .card .details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 10px 0 0 10px;
+    width: 92%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .parent .admin-product .index .card .details a {
+    background-color: #129b34;
+    color: white;
+  }
+  .parent .admin-product .index .card .details a:hover {
+    background: rgba(1, 1, 1, 0.5);
+  }
+  .parent .admin-product .index .card .details form {
+    margin: 0;
+    padding: 0;
+  }
+  .parent .admin-product .index .card .details form button {
+    background-color: #2d5ba1;
+    color: white;
+  }
+  .parent .admin-product .index .card .details form button:hover {
+    background: rgba(1, 1, 1, 0.5);
+  }
+  .parent .each {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    padding: 20px;
+  }
+  .parent .each p {
+    margin: 10px 0;
+  }
+  .parent .each h1 {
+    margin: 10px 0;
+    font-size: 25px;
+  }
+  .parent .each img {
+    width: 100%;
+  }
+  .parent .each form {
+    margin: 0;
+    padding: 0;
+  }
+  .parent .each form button {
+    background-color: #2d5ba1;
+    color: white;
+  }
+  .parent .each form button:hover {
+    background: rgba(1, 1, 1, 0.5);
+  }
+  .parent .cart {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    padding: 20px;
+  }
+  .parent .orders {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .parent .orders p {
+    font-size: 15px;
+    margin: 0 auto;
+  }
+  .parent .orders ol {
+    margin: 10px 0;
+  }
+}
+/*# sourceMappingURL=style.css.map */

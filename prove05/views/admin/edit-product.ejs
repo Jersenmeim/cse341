@@ -1,0 +1,29 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+    <div class="parent">
+        <div class="container">
+            <h1>Add Product</h1>
+            <form action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="POST">
+                <input type="text" name="title" placeholder="Add Title"
+                    value="<% if (editing) { %><%= product.title %><% } %>" required>
+                <input type="number" name="price" step=".01" placeholder="$0.00" min="0.01"
+                    value="<% if (editing) { %><%= product.price %><% } %>" required>
+                <input type="text" name="imageUrl" placeholder="Image Path/Url (https://image/com)"
+                    value="<% if (editing) { %><%= product.imageUrl %><% } %>" required>
+                <textarea type="text" name="description" placeholder="Description" required
+                    rows="5"><% if (editing) { %><%= product.description %><% } %></textarea>
+                <% if (editing) { %>
+                <input type="hidden" value="<%= product._id %>" name="productId">
+                <% } %>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button class="btn" type="submit" value="Submit"><% if (editing) { %>Update Product<% } else { %>Add
+                    Product<% } %></button>
+            </form>
+        </div>
+
+    </div>
+
+    <%- include('../includes/end.ejs') %>
