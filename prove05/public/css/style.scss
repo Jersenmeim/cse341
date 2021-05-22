@@ -34,6 +34,14 @@ $blue: rgb(45, 91, 161);
     cursor: pointer;
 }
 
+.none {
+    background-color: black;
+    border: none;
+    color: rgba(255, 5, 5, 0.815);
+    cursor: pointer;
+    font-size: 1em;
+}
+
 .nav-container {
     width: 100%;
 
@@ -69,7 +77,10 @@ $blue: rgb(45, 91, 161);
 
                 }
 
+
             }
+
+
         }
 
 

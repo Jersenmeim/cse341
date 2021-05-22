@@ -1,5 +1,21 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
+
+const nodemailer = require('nodemailer');
+const sendinBlue = require('nodemailer-sendinblue-transport');
+
+
+// var transporter = nodemailer.createTransport(sendinBlue({
+//     api_key: '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'
+
+// }));
+const transporter = nodemailer.createTransport({
+    service: 'SendinBlue', // no need to set host or port etc.
+    auth: {
+        user: 'meimjersen@gmail.com',
+        pass: 'QG8JDUIv6gxXOTdb'
+    }
+});
 exports.getLogin = (req, res, next) => {
     let message = req.flash('error');
     if (message.length > 0) {
@@ -70,7 +86,10 @@ exports.postSignup = (req, res, next) => {
         })
         .then(userDoc => {
             if (userDoc) {
-                req.flash('error', 'E-Mail exists already, please pick a different one.');
+                req.flash(
+                    'error',
+                    'E-Mail exists already, please pick a different one.'
+                );
                 return res.redirect('/signup');
             }
             return bcrypt
@@ -87,13 +106,19 @@ exports.postSignup = (req, res, next) => {
                 })
                 .then(result => {
                     res.redirect('/login');
-                });
+                    return transporter.sendMail({
+                        to: email,
+                        from: 'senderEmail@email.com',
+                        subject: 'Signup verification',
+                        html: 'Signup Successful'
+                    })
+                }).then((res) => console.log("Successfully sent"))
+                .catch((err) => console.log("Failed ", err))
         })
         .catch(err => {
             console.log(err);
         });
 };
-
 
 exports.postLogout = (req, res, next) => {
     req.session.destroy(err => {
