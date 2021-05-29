@@ -1,0 +1,43 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+    <div class="parent">
+        <div>
+            <div class="orders">
+                <p><b>List of Orders</b> </p>
+
+                <% if (orders.length <= 0) { %>
+                <h1>Nothing there!</h1>
+                <% } else { %>
+                <div class="orders">
+                    <% orders.forEach(order => { %>
+                    <div class="order">
+                        <h3>Order - # <%= order._id %></h3>
+                        <% let total = 0;
+                                    order.products.forEach(p => {
+                                        total += p.product.price;
+                                %>
+                        <a href="/products/<%= p.product._id %>"><%= p.product.title %></a>
+                        <div>Quantity:
+                            <%= p.quantity %>
+                        </div>
+                        <div>Price:
+                            $<%= p.product.price %>
+                        </div>
+                        <hr>
+                        <% }); %>
+                        <h3>
+                            Total: $<%= total.toFixed(2) %>
+                        </h3>
+                    </div>
+                    <% }); %>
+                </div>
+                <% } %>
+
+            </div>
+        </div>
+    </div>
+
+    <%- include('../includes/end.ejs') %>

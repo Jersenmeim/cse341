@@ -1,0 +1,32 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+    <div class="parent">
+        <div class="admin-product">
+            <h1>Welcome to EasyShop | List of Products</h1>
+            <div class="index">
+                <% if(list.length > 0) {%>
+                <% for(product of list) { %>
+                <div class="card">
+
+                    <img src=<%= product.imageUrl %> alt=<%= product.title %>>
+                    <p><%= product.title %></p>
+
+                    <div class="details">
+                        <a class="btn" href="/products/<%= product._id %>">Details</a>
+
+                        <% if (isAuthenticated) { %>
+                        <%- include('../includes/add-cart.ejs', {product: product}) %>
+                        <% } %>
+                    </div>
+                </div>
+                <% } %>
+                <%} else{%>
+                <p>No Products Found</p>
+                <%}%>  
+        </div>
+    </div>
+    </div>
+    <%- include('../includes/end.ejs') %>

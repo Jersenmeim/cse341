@@ -1,0 +1,36 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+    <div class="parent">
+        <div class="container">
+            <% if (errorMessage) { %>
+            <div><%= errorMessage %></div>
+            <% } %>
+            <form class="login-form" action="/signup" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                <input placeholder="First Name"
+                    class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>" type="text"
+                    name="fName" id="fName" value="<%= oldInput.fName %>">
+                <input placeholder="Last Name"
+                    class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>" type="text"
+                    name="lName" id="lName" value="<%= oldInput.lName %>">
+
+                <input placeholder="Email"
+                    class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>" type="email"
+                    name="email" id="email" value="<%= oldInput.email %>">
+                <input placeholder="Password"
+                    class="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %>" type="password"
+                    name="password" id="password" value="<%= oldInput.password %>">
+                <input placeholder="Confirm Password"
+                    class="<%= validationErrors.find(e => e.param === 'confirmPassword') ? 'invalid' : '' %>"
+                    type="password" name="confirmPassword" id="confirmPassword" value="<%= oldInput.confirmPassword %>">
+                <button class="btn" type="submit">Sign up</button>
+            </form>
+        </div>
+
+    </div>
+
+    <%- include('../includes/end.ejs') %>

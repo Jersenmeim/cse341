@@ -1,0 +1,47 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+    <div class="parent">
+        <div class="container">
+            <h1>Add Product</h1>
+            <% if (errorMessage) { %>
+            <div><%= errorMessage %></div>
+            <% } %>
+            <form class="product-form" action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>"
+                method="POST">
+
+
+                <input class="<%= validationErrors.find(e => e.param === 'title') ? 'invalid' : '' %>" type="text"
+                    placeholder="Title" name="title" id="title"
+                    value="<% if (editing || hasError) { %><%= product.title %><% } %>">
+
+
+
+                <input class="<%= validationErrors.find(e => e.param === 'imageUrl') ? 'invalid' : '' %>" type="text"
+                    placeholder="ImageUrl" name="imageUrl" id="imageUrl"
+                    value="<% if (editing || hasError) { %><%= product.imageUrl %><% } %>">
+
+
+                <input class="<%= validationErrors.find(e => e.param === 'price') ? 'invalid' : '' %>" type="number"
+                    placeholder="Price" name="price" id="price" step="0.01"
+                    value="<% if (editing || hasError) { %><%= product.price %><% } %>">
+
+                <textarea class="<%= validationErrors.find(e => e.param === 'description') ? 'invalid' : '' %>"
+                    name="description" id="description" placeholder="Description"
+                    rows="5"><% if (editing || hasError) { %><%= product.description %><% } %></textarea>
+
+                <% if (editing) { %>
+                <input type="hidden" value="<%= product._id %>" name="productId">
+                <% } %>
+
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button class="btn" type="submit"><% if (editing) { %>Update Product<% } else { %>Add
+                    Product<% } %></button>
+            </form>
+        </div>
+
+    </div>
+
+    <%- include('../includes/end.ejs') %>

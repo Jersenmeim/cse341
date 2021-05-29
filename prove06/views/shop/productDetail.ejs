@@ -1,0 +1,21 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+    <div class="parent">
+        <div class="each">
+            <h1><%= product.title %> | Details</h1>
+
+            <img src=<%= product.imageUrl %> alt=<%= product.title %>>
+            <p><b><%= product.title %></b></p>
+            <p><b>Description: </b><%= product.description %></p>
+            <p><b>Price: </b> $<%= product.price %></p>
+
+            <% if (isAuthenticated) { %>
+            <%- include('../includes/add-cart.ejs', {product: product}) %>
+            <% } %>
+
+        </div>
+    </div>
+    <%- include('../includes/end.ejs') %>
