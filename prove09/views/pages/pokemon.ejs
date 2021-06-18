@@ -14,11 +14,9 @@
     <div class="row m-0 p-0 justify-content-center mt-3 mb-3">
         <h1>Pokemon List:</h1>
     </div>
-    <div class="row m-0 p-0 justify-content-center">
+    <div style="text-align: center;">
         <% pokemonList.forEach( pokemon => { %>
-        <div class="col-5 m-0 p-0 pt-2 pb-2 pokemon">
-            <h4><%=pokemon.name.toUpperCase()%></h4>
-        </div>
+            <p><%=pokemon.name.toUpperCase()%></p>
         <% }); %>
     </div>
 
