@@ -14,11 +14,14 @@ exports.getAvengers = (req, res) => {
     res.json(avengersName);
 }
 exports.postHero = (req, res) => {
-    if (req.body.newName !== undefined) {
+    if ((req.body.newName !== undefined) || (req.body.newPower !== undefined)) {
         const newName = req.body.newName
-        if (!avengersName.avengers.some(a => a.name === newName)) {
+        const newPower = req.body.newPower
+        if (!avengersName.avengers.some(a => a.name === newName) && newPower !== '') {
             avengersName.avengers.push({
-                name: newName
+                name: newName,
+                power: newPower, 
+
             })
             res.sendStatus(200)
         }

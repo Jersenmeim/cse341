@@ -52,6 +52,13 @@
   text-align: center;
 }
 
+.g {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+}
+
 .heroes {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -60,16 +67,27 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 200px;
+  width: 400px;
   margin: 0 auto;
 }
 
-.heroes p {
+.heroes .group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.heroes .group p {
   margin: 0 0 0;
   padding: 10px;
   text-align: center;
   color: black;
   border: 1px solid black;
   width: 100%;
+}
+
+.heroes .group:first-child p {
+  color: #0065BD;
+  font-weight: bolder;
 }
 /*# sourceMappingURL=main.css.map */

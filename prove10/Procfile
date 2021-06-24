@@ -1,4 +1,4 @@
 
 
-web: node index.js
+web: nodemon index.js
 var request = require("request");

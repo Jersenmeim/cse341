@@ -1,21 +1,31 @@
 {
     "avengers": [{
-            "name": "Tony Stark"
+            "name": "Name",
+            "power": "Power"
         },
         {
-            "name": "Steve Rogers"
+            "name": "Tony Stark",
+            "power": "Intelligent"
         },
         {
-            "name": "Thor Odinson"
+            "name": "Steve Rogers",
+            "power": "Perfection on Strength"
         },
         {
-            "name": "Bruce Banner"
+            "name": "Thor Odinson",
+            "power": "Power of Storm"
         },
         {
-            "name": "Natasha Romanova"
+            "name": "Bruce Banner",
+            "power": "Longevity"
         },
         {
-            "name": "Clint Barton"
+            "name": "Natasha Romanova",
+            "power": "Expert Spy"
+        },
+        {
+            "name": "Clint Barton",
+            "power": "Master archer"
         }
     ]
 }
