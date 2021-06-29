@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../includes/header.ejs %>
+  <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+
+<body>
+  <% include ../includes/nav.ejs %>
+  <div class="jumbotron text-center">
+    <div class="container">
+      <h1><%= title %></h1>
+      <p>This is the placeholder for Team Activity 03</p>
+    </div>
+  </div>
+  <div class="container my-4">
+
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by name" title="Type in a name">
+    <br>
+    <br>
+
+    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th class="th-sm">Name</th>
+          <th class="th-sm">Price</th>
+          <th class="th-sm">Desciption</th>
+          <th class="th-sm">Image / Image URL</th>
+          <th class="th-sm">tags</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% listofdata.forEach(function (arrayItem) {%>
+        <% for(var i = 0; i < listofdata[0].length; i++) { %>
+        <tr>
+          <td><%= arrayItem[i].name %></td>
+          <td><%= arrayItem[i].price %></td>
+          <td><%= arrayItem[i].description %></td>
+          <td><%= arrayItem[i].imageUrl %></td>
+          <!-- <td><img src=<%= arrayItem[i].imageUrl %>></td> -->
+          <td><%= arrayItem[i].tags %></td>
+          <% } %>
+        </tr>
+        <% }); %>
+      </tbody>
+
+    </table>
+  </div>
+
+</body>
+<script src="/js/app.js"></script>
+
+</html>
