@@ -1,0 +1,202 @@
+.jumbotron {
+  background: #0065BD;
+  color: white;
+  padding-bottom: 80px;
+}
+
+#dtBasicExample tbody tr td img {
+  width: 50%;
+}
+
+.jumbotron .btn-primary {
+  background: #845ac7;
+  border-color: #845ac7;
+}
+
+.jumbotron .btn-primary:hover {
+  background: #7646c1;
+}
+
+.jumbotron p {
+  color: #d9ccee;
+  max-width: 75%;
+  margin: 1em auto 2em;
+}
+
+.navbar + .jumbotron {
+  margin-top: -20px;
+}
+
+.jumbotron .lang-logo {
+  display: block;
+  background: #B01302;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border: 2px solid white;
+}
+
+.jumbotron .lang-logo img {
+  max-width: 100%;
+}
+
+.logo {
+  width: 5rem;
+  height: 5rem;
+}
+
+.container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.g {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+}
+
+.heroes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.heroes .group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.heroes .group p {
+  margin: 0 0 0;
+  padding: 10px;
+  text-align: center;
+  color: black;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.heroes .group:first-child p {
+  color: #0065BD;
+  font-weight: bolder;
+}
+
+#chatBox {
+  width: 50%;
+  margin: auto;
+}
+
+#chatBox .uMessage {
+  list-style-type: none;
+  width: 100%;
+  margin: auto;
+  text-align: left;
+  margin: 10px auto;
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+  margin: auto;
+}
+
+.form input {
+  padding: 1%;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.form button {
+  padding: 1%;
+}
+
+.input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+  margin: auto;
+}
+
+.input textarea, .input button {
+  margin: 10px 0;
+  padding: 1%;
+}
+
+ul.chat li.message {
+  list-style-type: none;
+  text-align: left;
+  border: solid #DCDCDC 0.5rem;
+  border-radius: 1rem;
+  background-color: #F8F8FF;
+  margin: 1rem 0 1rem 0;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+ul.chat li.uMessage {
+  text-align: left;
+  list-style-type: none;
+  border: solid #016801 0.5rem;
+  border-radius: 1rem;
+  margin: 1rem 0 1rem auto;
+  background-color: #008000;
+  color: #F8F8FF;
+  padding: 1rem;
+}
+
+ul.chat li.red {
+  border: solid #960303 0.5rem;
+  background-color: #cf8a8a;
+}
+
+ul.chat li.yellow {
+  border: solid #969303 0.5rem;
+  background-color: #cecf8a;
+}
+
+ul.chat li.green {
+  border: solid #03960a 0.5rem;
+  background-color: #8ccf8a;
+}
+
+ul.chat li.blue {
+  border: solid #031296 0.5rem;
+  background-color: #8a94cf;
+}
+
+ul.chat li.purple {
+  border: solid #740396 0.5rem;
+  background-color: #bf8acf;
+}
+
+ul.chat li.orange {
+  border: solid #966303 0.5rem;
+  background-color: #cfb18a;
+}
+
+.displayname {
+  font-size: 1.5em;
+  text-align: left;
+}
+/*# sourceMappingURL=main.css.map */

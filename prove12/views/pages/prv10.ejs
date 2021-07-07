@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../includes/header.ejs %>
+</head>
+
+<body>
+  <% include ../includes/nav.ejs %>
+  <div class="jumbotron text-center">
+    <div class="container">
+      <h1><%= title %></h1>
+    </div>
+  </div>
+  <div class="container">
+    <div>
+      <div class="col-12">
+        <h1>Avengers API</h1>
+      </div>
+      <div class="col-12">
+        <a href="/prv10/fetchAll">See all the List in JSON Format</a>
+
+      </div>
+
+
+      <h1>Avengers</h1>
+
+      <div id="nameList" class="heroes"></div>
+      <h2>Create New Avenger</h2>
+
+      <div class="actions_container">
+        <input type="text" id="newName" placeholder="Name">
+        <input type="text" id="newPower" placeholder="Power">
+        <button id="submitName" onclick="submitName()">Submit</button>
+      </div>
+
+
+    </div>
+
+</body>
+<script src="../../js/script.js"></script>
+
+</html>

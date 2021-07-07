@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../includes/header.ejs %>
+</head>
+
+<body>
+  <% include ../includes/nav.ejs %>
+  <div class="jumbotron text-center">
+    <div class="container">
+      <h1><%= title %></h1>
+    </div>
+  </div>
+  <div class="container">
+    <h1>Live chat:</h1>
+    <ul id="chatBox" class="chat">
+    </ul>
+  
+  <% if (user) { %>
+  <div class="input">
+    <p class="displayname"><%= user %></p>
+    <textarea name="message" id="message"></textarea>
+    <button onclick="postMessage()">Send</button>
+    <button onclick="posLogout()">LogOut</button>
+    <input type="hidden" value="<%= user %>" name="user" id="user">
+    <input type="hidden" value="<%= color %>" name="color" id="color">
+  </div>
+
+  <% } else { %>
+  <p>No login, view only.</p>
+  <% } %>
+</div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/prv12-2.js"></script>
+
+</html>
